@@ -6,7 +6,7 @@ function onReady() {
   const newToDoText = document.getElementbyId('newToDoText');
   const toDoList = document.getElementbyId('toDoList');
 
-  //Add an event listener to addToDoForm
+  //Add an event listener to form through each ID
   addToDoForm.addEventListener('submit', () => {
     event.preventDefault();
 
@@ -34,12 +34,12 @@ function onReady() {
     //attach the li to the ul
     toDoList.appendChild(newLi);
 
-    //empty th einput
+    //empty the input
     newToDoText.value='';
 
   });
 }
 
 window.onload = function() {
-  alert("The window has loaded!");
+  onReady(); 
 };
