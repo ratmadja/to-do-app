@@ -1,0 +1,28 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #585353;
+  background: url(../images/background-image.jpg) center / cover;
+  height: 60vh;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+}
+
+#newToDoText {
+  width: 50%;
+  margin: auto;
+}
+
+#addButton {
+  margin-top: 10px;
+}
+
+li {
+  font-size: 1.5em;
+  margin: 5px;
+}
