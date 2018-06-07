@@ -1,11 +1,15 @@
+
+
 function onReady() {
-  //Using the ES6 const keyword instead of var
-  //to lock these asignments into place
+
   const ADD_TODO_FORM = document.getElementById('addToDoForm');
   const NEW_TODO_TEXT = document.getElementById('newToDoText');
   const TODO_LIST = document.getElementById('toDoList');
 
-  //Add an event listener to form through each ID
+  //Add an event listener
+  //37:14 When using (event) => shorthand as your event handler, it references the entire DOM window
+  //37:14 When using function(event) as your event handler, it references the item the event happened to
+
   ADD_TODO_FORM.addEventListener('submit', (event) => {
     event.preventDefault();
 
