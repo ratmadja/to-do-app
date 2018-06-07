@@ -1,45 +1,45 @@
 function onReady() {
   //Using the ES6 const keyword instead of var
-  //because const cannot change through reassignment, and it can't be redeclared
   //to lock these asignments into place
-  const addToDoForm = document.getElementbyId('addToDoForm');
-  const newToDoText = document.getElementbyId('newToDoText');
-  const toDoList = document.getElementbyId('toDoList');
+  const ADD_TODO_FORM = document.getElementById('addToDoForm');
+  const NEW_TODO_TEXT = document.getElementById('newToDoText');
+  const TODO_LIST = document.getElementById('toDoList');
 
   //Add an event listener to form through each ID
-  addToDoForm.addEventListener('submit', () => {
+  ADD_TODO_FORM.addEventListener('submit', (event) => {
     event.preventDefault();
 
+
     //get the text
-    //Using the ES6 let keyword instead of var
-    //because let creates block scope local variable
-    //var creates global variables
-    let title = newToDoText.value;
+    let title = NEW_TODO_TEXT.value;
+    //create a new li in javascript
+    let newLi = document.createElement('li'); //creates <li></li>
 
-    //create a new li
-    let newLi = document.createElement('li');
-
-    //create a new input
+    //create a new input box in javascript
     let checkbox = document.createElement('input');
-
-    //set the input's type to checkbox
+    //set the javascript input's type to checkbox
     checkbox.type = "checkbox";
+    //add delete button
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "Delete";
 
-    //set the title
     newLi.textContent = title;
-
-    //attach the checkbox to the li
     newLi.appendChild(checkbox);
+    newLi.appendChild(deleteBtn);
+    TODO_LIST.appendChild(newLi);
 
-    //attach the li to the ul
-    toDoList.appendChild(newLi);
+    deleteBtn.addEventListener('click', function(event) {
+      // console.log(event);
+      //the parent of the delete button is newLi
+      TODO_LIST.removeChild(this.parentElement);
+    });
 
     //empty the input
-    newToDoText.value='';
+    NEW_TODO_TEXT.value="";
 
   });
-}
+};
 
 window.onload = function() {
-  onReady(); 
+  onReady();
 };
